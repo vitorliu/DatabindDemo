@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.example.databinddemo.ThreeActivity.ThreeHandle" />
+    <import type="android.databinding.ObservableMap" />
+        <import type="android.databinding.ObservableList" />
+        <variable
+            name="map"
+            type="ObservableMap&lt;String,String&gt;" />
+        <variable
+            name="list"
+            type="ObservableList&lt;String&gt;" />
+        <variable
+            name="key"
+            type="String" />
+        <variable
+            name="index"
+            type="int" />
+        <variable
+            name="handle"
+            type="ThreeHandle" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_name"
+            android:text="@{list[index],default=vitor}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sex"
+            android:text="@{map[key],default=men}"
+            />
+        <Button
+            android:onClick="@{()->handle.changeList()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变List"
+            />
+        <Button
+            android:onClick="@{()->handle.changeMap()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变map"
+            />
+    </LinearLayout>
+</layout>

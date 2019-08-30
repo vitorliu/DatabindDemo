@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.example.databinddemo.UserObserable" />
+        <import type="com.example.databinddemo.MainActivity.UserHandle" />
+        <variable
+            name="user"
+            type="UserObserable" />
+        <variable
+            name="handle"
+            type="UserHandle" />
+    </data>
+
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_name"
+            android:text="@{user.name,default=vitor}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_sex"
+            android:text="@{user.sex,default=men}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_age"
+            android:text="@{user.age,default=24}"
+            />
+        <Button
+            android:onClick="@{()->handle.changeName()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="只改变name"
+            />
+        <Button
+            android:onClick="@{()->handle.changeAll()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改变所有"
+            />
+        <Button
+            android:onClick="@{()->handle.gotoSecond()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跳转"
+            />
+    </LinearLayout>
+</layout>
